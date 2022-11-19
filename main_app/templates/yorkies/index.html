@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>All Yorkies</h1>
+
+{% for yorkie in yorkies %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ yorkie.name }}</span>
+      <p>Breed: {{ yorkie.breed }}</p>
+      <p>Description: {{ yorkie.description }}</p>
+      {% if cat.age > 0 %}
+        <p>Age: {{ yorkie.age }}</p>
+      {% else %}
+        <p>Age: Puppie</p>
+      {% endif %}
+    </div>
+  </div>
+
+{% endfor %}
+{% endblock %}
