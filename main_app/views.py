@@ -1,9 +1,5 @@
 from django.shortcuts import render
-
-yorkies = [
-    {'name': 'Lolo', 'breed': 'yorkies', 'description': 'stuck up and spoiled', 'age': 3},
-    {'name': 'Sachi', 'breed': 'teacup yorkie', 'description': 'gentle and loving', 'age': 2},
-]
+from .models import Yorkie
 
 # Create your views here.
 def home(request):
@@ -13,4 +9,11 @@ def about(request):
     return render(request, 'about.html')
 
 def yorkies_index(request):
+    yorkies = Yorkie.objects.all()
     return render(request, 'yorkies/index.html', { 'yorkies': yorkies })
+
+def yorkies_detail(request, yorkie_id):
+    yorkie = Yorkie.objects.get(id=yorkie_id)
+    return render(request, 'yorkies/detail.html', {
+        'yorkie': yorkie
+    })
