@@ -27,7 +27,7 @@ def yorkies_detail(request, yorkie_id):
 
 class YorkieCreate(CreateView):
     model = Yorkie
-    fields = '__all__'
+    fields = ['name', 'breed', 'description', 'age']
     
 class YorkieUpdate(UpdateView):
     model = Yorkie
